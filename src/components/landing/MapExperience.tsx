@@ -212,7 +212,7 @@ export function MapExperience({ fullScreen = false, userName = "Rohan Sharma" }:
                       <div>
                         <div className="text-slate-500 text-xs mb-1 font-medium">Departure</div>
                         <div className="font-semibold text-slate-900 tracking-wide">{activeRoute.originName}</div>
-                        <div className="text-xs text-slate-400 mt-1 font-mono">{activeRoute.departureTime}</div>
+                        <div className="text-xs text-slate-400 mt-1 font-mono">{(activeRoute as any).departureTime || "10:30 AM"}</div>
                       </div>
                       <div className="flex-1 flex items-center px-4">
                         <div className="h-[1px] w-full bg-slate-200 border-dashed border-t" />
@@ -229,7 +229,7 @@ export function MapExperience({ fullScreen = false, userName = "Rohan Sharma" }:
                     <div className="grid grid-cols-3 gap-2 bg-slate-50 rounded-xl p-3 border border-slate-100">
                       <div className="flex flex-col items-center justify-center text-center">
                         <div className="text-[10px] text-slate-500 mb-1 font-medium">Passengers</div>
-                        <div className="text-sm font-bold tracking-wide text-slate-900">{activeRoute.passengers} / {activeRoute.capacity}</div>
+                        <div className="text-sm font-bold tracking-wide text-slate-900">{(activeRoute as any).passengers || activeRoute.occupancy} / {activeRoute.capacity}</div>
                       </div>
                       <div className="flex flex-col items-center justify-center text-center border-x border-slate-200">
                         <div className="text-[10px] text-slate-500 mb-1 font-medium">Fare</div>

@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Users, Map, AlertTriangle, TrendingUp, Cpu, IndianRupee } from "lucide-react";
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -15,7 +15,7 @@ const containerVariants = {
   }
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 50, rotateX: 10, rotateY: -10, scale: 0.95 },
   show: { 
     opacity: 1, 
@@ -32,7 +32,7 @@ const cardVariants = {
   }
 };
 
-const mapVariants = {
+const mapVariants: Variants = {
   hidden: { opacity: 0, scale: 0.9, rotateX: 5 },
   show: {
     opacity: 1,

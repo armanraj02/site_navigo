@@ -24,7 +24,11 @@ export const MapDebugger: React.FC = () => {
     ];
 
     return () => {
-      listeners.forEach((l) => l.remove());
+      listeners.forEach((l) => {
+        if (l && typeof l.remove === 'function') {
+          l.remove();
+        }
+      });
     };
   }, [map]);
 

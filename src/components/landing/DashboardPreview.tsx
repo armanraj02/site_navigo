@@ -84,9 +84,9 @@ export function DashboardPreview() {
             <div className="w-3 h-3 rounded-full bg-slate-400" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Sidebar KPIs */}
-            <div className="md:col-span-3 space-y-6 flex flex-col">
+            <div className="lg:col-span-3 space-y-6 flex flex-col">
               <motion.div variants={cardVariants} className="h-full">
                 <WhiteCard>
                   <div className="flex items-center justify-between mb-6">
@@ -151,7 +151,7 @@ export function DashboardPreview() {
             </div>
 
             {/* Main Map / Center Area */}
-            <motion.div variants={mapVariants} className="md:col-span-6 relative rounded-3xl overflow-hidden bg-slate-50 border border-slate-200 min-h-[500px]">
+            <motion.div variants={mapVariants} className="lg:col-span-6 relative rounded-3xl overflow-hidden bg-slate-50 border border-slate-200 min-h-[400px] md:min-h-[500px]">
               {/* Fake Map Grid */}
               <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at center, #cbd5e1 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
               
@@ -165,7 +165,7 @@ export function DashboardPreview() {
                   <div className="absolute inset-0 rounded-full bg-[#0057FF]/10 animate-ping" style={{ animationDuration: '3s' }} />
                   <div className="w-4 h-4 rounded-full bg-[#00D6FF] shadow-[0_0_20px_rgba(0,214,255,0.8)]" />
                 </div>
-                <div className="mt-4 bg-white/90 backdrop-blur-xl px-4 py-2 rounded-xl border border-slate-200 text-center shadow-lg shadow-slate-200/50">
+                <div className="mt-4 bg-white/90 backdrop-blur-xl px-4 py-2 rounded-xl border border-slate-200 text-center shadow-lg shadow-slate-200/50 max-w-[250px] md:max-w-none">
                    <div className="text-xs text-[#E5A822] font-bold mb-1 uppercase tracking-wider">AI Prediction</div>
                    <div className="text-sm font-medium text-slate-800">Traffic expected on NH-66 near Udupi in 18 minutes.</div>
                    <div className="text-xs text-[#00B060] font-semibold mt-1">Suggested Alternate Route active.</div>
@@ -175,7 +175,7 @@ export function DashboardPreview() {
             </motion.div>
 
             {/* Right KPIs */}
-            <div className="md:col-span-3 space-y-6 flex flex-col">
+            <div className="lg:col-span-3 space-y-6 flex flex-col">
               <motion.div variants={cardVariants} className="h-full">
                 <WhiteCard>
                   <div className="flex items-center justify-between mb-6">

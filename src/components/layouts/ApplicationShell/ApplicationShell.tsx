@@ -40,8 +40,8 @@ export const ApplicationShell: React.FC<ApplicationShellProps> = ({ children }) 
         <main
           className={cn(
             "relative z-10 flex-1 flex flex-col transition-all duration-300 pointer-events-none select-none",
-            currentView !== "passenger" && "mt-20 mr-4 p-4 pb-20",
-            currentView !== "loading" && currentView !== "passenger" && (isSidebarOpen ? "ml-[22rem]" : "ml-24")
+            currentView !== "passenger" && "mt-20 md:mr-4 p-4 pb-20 md:pb-4",
+            currentView !== "loading" && currentView !== "passenger" && (isSidebarOpen ? "md:ml-[22rem]" : "md:ml-24")
           )}
         >
           <div className="flex-1 w-full flex flex-col justify-start items-stretch pointer-events-auto">

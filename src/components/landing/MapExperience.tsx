@@ -129,18 +129,18 @@ export function MapExperience({ fullScreen = false, userName = "Rohan Sharma" }:
           
           {/* Header */}
           {!fullScreen && (
-            <div className="h-20 border-b border-slate-200 flex items-center justify-between px-8 bg-white/80 backdrop-blur-md">
-              <div className="relative w-96">
+            <div className="h-20 border-b border-slate-200 flex items-center justify-between px-4 md:px-8 bg-white/80 backdrop-blur-md">
+              <div className="relative w-full max-w-[200px] md:max-w-none md:w-96 mr-4">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                 <input 
                   type="text" 
-                  placeholder="Search active routes or drivers..." 
+                  placeholder="Search routes..." 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full bg-slate-50 border border-slate-200 rounded-full py-2.5 pl-10 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0057FF]/30 focus:bg-white transition-colors"
                 />
               </div>
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-2 md:gap-6 shrink-0">
                 <div 
                   className="relative cursor-pointer hover:bg-slate-50 p-2 rounded-full transition-colors"
                   onClick={() => showToast("No new notifications")}
@@ -149,24 +149,24 @@ export function MapExperience({ fullScreen = false, userName = "Rohan Sharma" }:
                   <div className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#0057FF] rounded-full shadow-[0_0_10px_rgba(0,87,255,0.4)]" />
                 </div>
                 <div className="flex items-center gap-3 cursor-pointer hover:bg-slate-50 p-1.5 pr-4 rounded-full transition-colors border border-transparent hover:border-slate-200">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#0057FF] to-[#00D6FF] flex items-center justify-center text-sm font-semibold text-white shadow-md shadow-[#0057FF]/20">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#0057FF] to-[#00D6FF] flex items-center justify-center text-sm font-semibold text-white shadow-md shadow-[#0057FF]/20 shrink-0">
                     {userName.substring(0, 2).toUpperCase()}
                   </div>
-                  <span className="text-sm font-medium text-slate-900">{userName}</span>
+                  <span className="text-sm font-medium text-slate-900 hidden sm:block">{userName}</span>
                 </div>
               </div>
             </div>
           )}
 
           {/* Body Columns */}
-          <div className="flex-1 flex min-h-0 bg-transparent">
+          <div className="flex-1 flex flex-col md:flex-row min-h-0 bg-transparent">
             
             {/* Left Column (Data & Lists) */}
             {!fullScreen && (
-              <div className="w-[400px] border-r border-slate-200 p-6 flex flex-col gap-6 overflow-hidden bg-white z-30">
+              <div className="w-full md:w-[400px] shrink-0 border-b md:border-b-0 md:border-r border-slate-200 p-4 md:p-6 flex flex-col gap-6 overflow-y-auto md:overflow-hidden bg-white z-30 max-h-[50vh] md:max-h-none">
                 
                 {/* Action Gradient Card */}
-                <div className="rounded-2xl p-6 bg-gradient-to-br from-[#0057FF]/5 to-purple-500/5 border border-[#0057FF]/10 relative overflow-hidden group">
+                <div className="rounded-2xl p-5 md:p-6 bg-gradient-to-br from-[#0057FF]/5 to-purple-500/5 border border-[#0057FF]/10 relative overflow-hidden group shrink-0">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                   <div className="relative z-10">
                     <h3 className="font-semibold text-lg mb-1 tracking-tight text-slate-900">Track New Bus</h3>

@@ -35,7 +35,10 @@ export const ShellNavbar: React.FC = () => {
 
   return (
     <BaseNavbar
-      className={isSidebarOpen ? "left-[22rem]" : "left-24"}
+      className="left-4 right-4 md:right-4 transition-all duration-300"
+      style={{
+        left: typeof window !== 'undefined' && window.innerWidth >= 768 ? (isSidebarOpen ? "22rem" : "6rem") : undefined,
+      }}
       title={viewTitles[currentView]}
       actions={
         <>

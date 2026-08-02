@@ -99,7 +99,7 @@ export function LoginModal({ onLogin }: LoginModalProps) {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 w-full max-w-[420px] bg-white/90 backdrop-blur-xl rounded-[2rem] p-8 shadow-2xl shadow-[#0057FF]/10 border border-white/50 flex flex-col items-center"
+        className="relative z-10 w-full max-w-[420px] bg-white/90 backdrop-blur-xl rounded-[2rem] p-6 md:p-8 shadow-2xl shadow-[#0057FF]/10 border border-white/50 flex flex-col items-center"
       >
         {/* Role Tabs */}
         <div className="w-full bg-slate-100 p-1 rounded-2xl flex relative mb-8">

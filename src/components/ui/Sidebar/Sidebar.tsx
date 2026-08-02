@@ -14,7 +14,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <div
       className={cn(
-        "fixed top-4 bottom-4 left-4 z-40 transition-all duration-300 ease-apple flex",
+        "hidden md:flex fixed top-4 bottom-4 left-4 z-40 transition-all duration-300 ease-apple",
         isOpen ? "w-80" : "w-16",
         className
       )}

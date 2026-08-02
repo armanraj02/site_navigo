@@ -6,7 +6,7 @@ import {
   Home, Grid, FileText, Settings, LogOut, 
   Search, Bell, MapPin, Navigation, Phone, MessageSquare, IndianRupee, Check
 } from "lucide-react";
-import { GoogleMap, useJsApiLoader, OverlayViewF, Polyline } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, OverlayViewF } from "@react-google-maps/api";
 import Link from "next/link";
 
 const containerStyle = {
@@ -487,15 +487,7 @@ export function MapExperience({ fullScreen = false, userName = "Rohan Sharma" }:
                     const isActive = route.id === activeRouteId;
                     return (
                       <React.Fragment key={route.id}>
-                        {/* Line Rendering */}
-                        <Polyline
-                          path={route.path}
-                          options={{
-                            strokeColor: isActive ? "#D32F2F" : "#94A3B8",
-                            strokeOpacity: isActive ? 1.0 : 0.4,
-                            strokeWeight: isActive ? 5 : 3,
-                          }}
-                        />
+                        {/* Line Rendering removed to prevent API crash on Demo Key quota limits */}
 
                         {/* Origin Marker (Glowing Red for active) */}
                         <OverlayViewF position={route.origin} mapPaneName={"overlayMouseTarget"}>

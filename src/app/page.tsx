@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/landing/Navbar";
 import { MapExperience } from "@/components/landing/MapExperience";
-import { DashboardPreview } from "@/components/landing/DashboardPreview";
+
 import { LoginModal } from "@/components/landing/LoginModal";
 import { Footer } from "@/components/landing/Footer";
 
@@ -65,9 +65,7 @@ export default function LandingPage() {
       {/* SLIDE 2: Google Maps Experience */}
       <MapExperience fullScreen={false} userName={userName} />
 
-      {/* SLIDE 3: Assembly (Dashboard Preview) */}
-      <DashboardPreview />
-      
+
       {/* SLIDE 4: Footer */}
       <Footer />
     </div>

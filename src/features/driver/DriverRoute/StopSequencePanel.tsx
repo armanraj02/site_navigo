@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useDriverStore } from "../DriverState";
-import { MOCK_ROUTES, MOCK_STOPS } from "@/three/simulation/DummyScheduleEngine";
+import { MANGALURU_ROUTES as MOCK_ROUTES } from "@/lib/demoData";
 import { Card } from "@/components/ui";
 
 export const StopSequencePanel: React.FC = () => {
@@ -11,9 +11,7 @@ export const StopSequencePanel: React.FC = () => {
   const route = MOCK_ROUTES.find((r) => r.id === "R42");
   if (!route) return null;
 
-  const stops = route.stopIds
-    .map((sid) => MOCK_STOPS.find((s) => s.id === sid))
-    .filter(Boolean);
+  const stops = route.path || [];
 
   return (
     <Card className="p-4 bg-background-glass border-white/10 backdrop-blur-xl rounded-2xl w-full flex flex-col gap-3.5 select-none">
@@ -29,8 +27,7 @@ export const StopSequencePanel: React.FC = () => {
           const isNext = idx > currentStopIdx;
 
           return (
-            <div key={stop.id} className="relative flex items-center justify-between text-xs">
-              {/* Timeline marker */}
+            <div key={idx} className="relative flex items-center justify-between text-xs">
               <div
                 className={`absolute -left-[20px] w-2.5 h-2.5 rounded-full border flex items-center justify-center transition-colors duration-300 ${
                   isPassed
@@ -51,24 +48,12 @@ export const StopSequencePanel: React.FC = () => {
                       : "text-text-primary"
                   }`}
                 >
-                  {stop.name}
+                  Stop {idx + 1}
                 </span>
                 <span className="text-[8px] text-text-muted font-mono uppercase tracking-wider mt-0.5">
-                  Stop ID: {stop.id}
+                  Lat: {stop.lat.toFixed(4)}, Lng: {stop.lng.toFixed(4)}
                 </span>
               </div>
-
-              {isActive && (
-                <span className="text-[9px] font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-1.5 py-0.5 rounded font-mono uppercase">
-                  Docked
-                </span>
-              )}
-
-              {isNext && idx === currentStopIdx + 1 && (
-                <span className="text-[9px] font-bold text-text-muted bg-white/5 border border-white/5 px-1.5 py-0.5 rounded font-mono uppercase">
-                  Next Stop
-                </span>
-              )}
             </div>
           );
         })}

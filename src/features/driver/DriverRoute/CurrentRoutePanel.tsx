@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useDriverStore } from "../DriverState";
-import { MOCK_ROUTES } from "@/three/simulation/DummyScheduleEngine";
+import { MANGALURU_ROUTES as MOCK_ROUTES } from "@/lib/demoData";
 import { Card } from "@/components/ui";
 
 export const CurrentRoutePanel: React.FC = () => {
@@ -27,16 +27,16 @@ export const CurrentRoutePanel: React.FC = () => {
       <div className="flex items-center gap-3">
         <span
           className="text-xs font-bold text-white px-2 py-1 rounded font-mono"
-          style={{ backgroundColor: route.color }}
+          style={{ backgroundColor: "#3b82f6" }}
         >
           {route.id}
         </span>
         <div className="flex flex-col">
           <span className="text-xs font-bold text-text-primary leading-none">
-            {route.name}
+            {route.originName} to {route.destinationName}
           </span>
           <span className="text-[9px] text-text-muted font-mono uppercase tracking-wider mt-1">
-            Headway: {route.headwayMinutes} mins
+            Headway: 15 mins
           </span>
         </div>
       </div>

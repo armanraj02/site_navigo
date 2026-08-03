@@ -31,10 +31,10 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("overview");
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] flex text-slate-900 font-sans">
+    <div className="min-h-screen bg-[#F5F7FA] flex flex-col md:flex-row text-slate-900 font-sans">
       
       {/* Sidebar */}
-      <div className="w-64 bg-white border-r border-slate-200 flex flex-col shrink-0 relative z-20">
+      <div className="w-full md:w-64 md:min-h-screen bg-white border-b md:border-b-0 md:border-r border-slate-200 flex flex-col shrink-0 relative z-20">
         <div className="h-16 flex items-center px-6 border-b border-slate-100">
           <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-lg mr-3 shadow-md shadow-blue-500/20">
             N
@@ -61,8 +61,8 @@ export default function AdminDashboard() {
       <div className="flex-1 flex flex-col min-w-0">
         
         {/* Header */}
-        <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 shrink-0 relative z-10">
-          <div className="relative w-96">
+        <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 md:px-8 shrink-0 relative z-10">
+          <div className="relative w-full max-w-[200px] md:max-w-none md:w-96 mr-4">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input 
               type="text" 

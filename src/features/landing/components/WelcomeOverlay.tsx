@@ -3,7 +3,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LogoAnimation } from "./LogoAnimation";
-import { AudioManager } from "@/three/AudioManager";
+
 
 interface WelcomeOverlayProps {
   visible: boolean;
@@ -24,7 +24,7 @@ export const WelcomeOverlay: React.FC<WelcomeOverlayProps> = ({
   onSkip,
 }) => {
   const handleEnter = () => {
-    AudioManager.playTransitionChime();
+
     onEnter();
   };
 

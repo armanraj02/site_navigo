@@ -14,7 +14,7 @@ const containerStyle = {
   height: '100%'
 };
 
-import { MANGALURU_ROUTES as MOCK_ROUTES, MANGALURU_MARKERS } from "@/lib/demoData";
+import { MANGALURU_ROUTES as MOCK_ROUTES, MANGALURU_STOPS as MANGALURU_MARKERS } from "@/lib/demoData";
 
 const mapOptions = {
   disableDefaultUI: true,
@@ -121,7 +121,7 @@ export function MapExperience({ fullScreen = false, userName = "Rohan Sharma" }:
         whileInView={{ opacity: 1, y: 0 }}
         viewport={fullScreen ? undefined : { once: true, margin: "-100px" }}
         transition={fullScreen ? { duration: 0.5 } : { duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className={`w-full bg-white flex relative z-10 ${fullScreen ? 'h-full' : 'max-w-6xl aspect-[16/9] rounded-[2.5rem] border border-slate-200 shadow-2xl shadow-slate-200/50 overflow-hidden'}`}
+        className={`w-full bg-white flex relative z-10 ${fullScreen ? 'h-full' : 'max-w-6xl h-[800px] lg:h-auto lg:aspect-[16/9] rounded-[2.5rem] border border-slate-200 shadow-2xl shadow-slate-200/50 overflow-hidden'}`}
       >
         
         {/* Main Content Area */}
@@ -130,14 +130,14 @@ export function MapExperience({ fullScreen = false, userName = "Rohan Sharma" }:
           {/* Header */}
           {!fullScreen && (
             <div className="h-20 border-b border-slate-200 flex items-center justify-between px-4 md:px-8 bg-white/80 backdrop-blur-md">
-              <div className="relative w-full max-w-[200px] md:max-w-none md:w-96 mr-4">
+              <div className="relative flex-1 min-w-[120px] md:w-96 mr-2 md:mr-4">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                 <input 
                   type="text" 
                   placeholder="Search routes..." 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-full py-2.5 pl-10 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0057FF]/30 focus:bg-white transition-colors"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-full py-2.5 pl-10 pr-4 text-base md:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0057FF]/30 focus:bg-white transition-colors"
                 />
               </div>
               <div className="flex items-center gap-2 md:gap-6 shrink-0">
@@ -159,11 +159,11 @@ export function MapExperience({ fullScreen = false, userName = "Rohan Sharma" }:
           )}
 
           {/* Body Columns */}
-          <div className="flex-1 flex flex-col md:flex-row min-h-0 bg-transparent">
+          <div className="flex-1 flex flex-col lg:flex-row min-h-0 bg-transparent">
             
             {/* Left Column (Data & Lists) */}
             {!fullScreen && (
-              <div className="w-full md:w-[400px] shrink-0 border-b md:border-b-0 md:border-r border-slate-200 p-4 md:p-6 flex flex-col gap-6 overflow-y-auto md:overflow-hidden bg-white z-30 max-h-[50vh] md:max-h-none">
+              <div className="w-full lg:w-[400px] shrink-0 border-b lg:border-b-0 lg:border-r border-slate-200 p-4 md:p-6 flex flex-col gap-6 overflow-y-auto lg:overflow-hidden bg-white z-30 max-h-[50vh] lg:max-h-none">
                 
                 {/* Action Gradient Card */}
                 <div className="rounded-2xl p-5 md:p-6 bg-gradient-to-br from-[#0057FF]/5 to-purple-500/5 border border-[#0057FF]/10 relative overflow-hidden group shrink-0">
@@ -178,7 +178,7 @@ export function MapExperience({ fullScreen = false, userName = "Rohan Sharma" }:
                         onChange={(e) => setTrackInput(e.target.value)}
                         onKeyDown={(e) => e.key === 'Enter' && handleTrackSubmit()}
                         placeholder="e.g. KA-19 F 4587" 
-                        className="flex-1 bg-white border border-slate-200 rounded-xl px-4 text-sm font-mono placeholder:font-sans placeholder:text-slate-400 focus:outline-none focus:border-[#0057FF]/30 transition-colors text-slate-900 shadow-sm"
+                        className="flex-1 bg-white border border-slate-200 rounded-xl px-4 text-base md:text-sm font-mono placeholder:font-sans placeholder:text-slate-400 focus:outline-none focus:border-[#0057FF]/30 transition-colors text-slate-900 shadow-sm"
                       />
                       <button 
                         onClick={handleTrackSubmit}
@@ -335,14 +335,14 @@ export function MapExperience({ fullScreen = false, userName = "Rohan Sharma" }:
                               placeholder="Current Location"
                               value={exploreFrom}
                               onChange={(e) => setExploreFrom(e.target.value)}
-                              className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-10 pr-4 text-sm font-medium focus:outline-none focus:border-blue-500/50 transition-colors relative z-0"
+                              className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-10 pr-4 text-base md:text-sm font-medium focus:outline-none focus:border-blue-500/50 transition-colors relative z-0"
                             />
                             <input
                               type="text"
                               placeholder="Destination"
                               value={exploreTo}
                               onChange={(e) => setExploreTo(e.target.value)}
-                              className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-10 pr-4 text-sm font-medium focus:outline-none focus:border-blue-500/50 transition-colors relative z-0"
+                              className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-10 pr-4 text-base md:text-sm font-medium focus:outline-none focus:border-blue-500/50 transition-colors relative z-0"
                             />
                           </div>
                         </div>

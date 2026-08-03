@@ -8,7 +8,7 @@ export function Navbar({ userName = "Guest", onLogout }: { userName?: string, on
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-4 transition-all duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
         {/* Logo */}
@@ -19,15 +19,7 @@ export function Navbar({ userName = "Guest", onLogout }: { userName?: string, on
           <span className="font-semibold tracking-tight text-slate-900 text-xl hidden sm:block">NAVIGO</span>
         </Link>
 
-        {/* Center Links (Desktop) */}
-        <div className="hidden md:flex items-center gap-1 bg-white/70 backdrop-blur-xl px-2 py-1.5 rounded-full border border-slate-200/50 shadow-sm">
-          <NavLink href="#overview">Overview</NavLink>
-          <NavLink href="#navigation">Navigation</NavLink>
-          <NavLink href="#fleet">Fleet</NavLink>
-          <NavLink href="#analytics">Analytics</NavLink>
-          <NavLink href="#technology">Technology</NavLink>
-          <NavLink href="#pricing">Pricing</NavLink>
-        </div>
+
 
         {/* Right CTA */}
         <div className="flex items-center gap-3 md:gap-4">
@@ -78,11 +70,7 @@ export function Navbar({ userName = "Guest", onLogout }: { userName?: string, on
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-20 left-4 right-4 bg-white rounded-3xl shadow-2xl border border-slate-100 p-5 flex flex-col gap-2 md:hidden z-40"
           >
-            <MobileNavLink href="#overview" onClick={() => setIsMobileMenuOpen(false)}>Overview</MobileNavLink>
-            <MobileNavLink href="#navigation" onClick={() => setIsMobileMenuOpen(false)}>Navigation</MobileNavLink>
-            <MobileNavLink href="#fleet" onClick={() => setIsMobileMenuOpen(false)}>Fleet</MobileNavLink>
-            <MobileNavLink href="#analytics" onClick={() => setIsMobileMenuOpen(false)}>Analytics</MobileNavLink>
-            <div className="h-px w-full bg-slate-100 my-2" />
+
             <Link 
               href="/dashboard" 
               onClick={() => setIsMobileMenuOpen(false)}

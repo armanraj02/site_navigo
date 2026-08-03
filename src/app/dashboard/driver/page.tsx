@@ -35,49 +35,60 @@ export default function DriverDashboard() {
   });
 
   return (
-    <div className="h-screen w-full bg-slate-900 text-white flex flex-col font-sans overflow-hidden">
+    <div className="h-screen w-full bg-[#F5F7FA] text-slate-900 flex flex-col font-sans overflow-hidden">
       
       {/* Top Status Bar */}
-      <div className="h-14 bg-slate-950 border-b border-slate-800 flex items-center justify-between px-6 shrink-0 relative z-20">
-        <div className="flex items-center gap-4">
-          <Link href="/dashboard" className="text-slate-400 hover:text-white font-medium text-sm transition-colors border border-slate-800 px-3 py-1 rounded-lg">
-            ← Exit
-          </Link>
-          <div className="flex items-center gap-4">
-            <span className="font-bold tracking-widest text-lg text-white">{DRIVER_DATA.busId}</span>
-            <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-blue-500/20 text-blue-400 border border-blue-500/30">
-              {activeRoute.busType}
-            </span>
-            <span className="text-sm text-slate-400 font-medium ml-4">
-              {DRIVER_DATA.name} • {DRIVER_DATA.driverId}
-            </span>
+      <div className="min-h-14 h-auto bg-white border-b border-slate-200 flex flex-col lg:flex-row lg:items-center justify-between p-3 lg:px-6 shrink-0 relative z-20 gap-3 lg:gap-0">
+        {/* Left Side */}
+        <div className="flex items-center justify-between w-full lg:w-auto">
+          <div className="flex items-center gap-3 lg:gap-4">
+            <Link href="/dashboard" className="text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition-colors border border-slate-200 px-2 lg:px-3 py-1 rounded-lg shrink-0">
+              ← Exit
+            </Link>
+            <div className="flex flex-col lg:flex-row lg:items-center gap-0.5 lg:gap-4">
+              <div className="flex items-center gap-2">
+                <span className="font-bold tracking-widest text-sm lg:text-lg text-slate-900">{DRIVER_DATA.busId}</span>
+                <span className="px-1.5 lg:px-2 py-0.5 rounded text-[8px] lg:text-[10px] font-bold uppercase tracking-wider bg-blue-500/20 text-blue-400 border border-blue-500/30">
+                  {activeRoute.busType}
+                </span>
+              </div>
+              <span className="text-xs lg:text-sm text-slate-500 font-medium">
+                {DRIVER_DATA.name} <span className="hidden lg:inline">• {DRIVER_DATA.driverId}</span>
+              </span>
+            </div>
           </div>
+          
+          <Link href="/" className="lg:hidden bg-white border border-slate-200 text-slate-500 hover:bg-slate-50 p-2 rounded-lg flex items-center justify-center shrink-0">
+            <LogOut className="w-4 h-4" />
+          </Link>
         </div>
 
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2 text-slate-400">
-            <Signal className={`w-4 h-4 ${isShiftActive ? 'text-emerald-400' : 'text-slate-600'}`} />
-            <span className="text-xs font-bold uppercase tracking-wider">{isShiftActive ? DRIVER_DATA.shift.gpsStatus : 'GPS OFF'}</span>
+        {/* Right Side */}
+        <div className="flex items-center justify-between lg:justify-end gap-4 lg:gap-6 w-full lg:w-auto">
+          <div className="flex items-center gap-1.5 lg:gap-2 text-slate-400">
+            <Signal className={`w-3.5 h-3.5 lg:w-4 lg:h-4 ${isShiftActive ? 'text-emerald-400' : 'text-slate-600'}`} />
+            <span className="text-[10px] lg:text-xs font-bold uppercase tracking-wider">{isShiftActive ? DRIVER_DATA.shift.gpsStatus : 'GPS OFF'}</span>
           </div>
-          <div className="flex items-center gap-2 text-slate-400">
-            <BatteryMedium className="w-4 h-4" />
-            <span className="text-xs font-bold">{DRIVER_DATA.shift.battery}</span>
+          <div className="flex items-center gap-1.5 lg:gap-2 text-slate-400">
+            <BatteryMedium className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
+            <span className="text-[10px] lg:text-xs font-bold">{DRIVER_DATA.shift.battery}</span>
           </div>
-          <div className="text-xl font-bold tracking-tight">{currentTime}</div>
-          <div className="h-6 w-[1px] bg-slate-700 mx-2" />
-          <Link href="/" className="bg-slate-800 border border-slate-700 hover:bg-red-500/10 hover:text-red-400 hover:border-red-500/30 text-slate-300 transition-colors px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2">
+          <div className="text-base lg:text-xl font-bold tracking-tight text-slate-900">{currentTime}</div>
+          
+          <div className="hidden lg:block h-6 w-[1px] bg-slate-200 mx-2" />
+          <Link href="/" className="hidden lg:flex bg-white border border-slate-200 hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/30 text-slate-500 transition-colors px-4 py-2 rounded-lg text-sm font-bold items-center gap-2">
             <LogOut className="w-4 h-4" />
             Logout
           </Link>
         </div>
       </div>
 
-      <div className="flex-1 flex overflow-hidden relative z-10">
+      <div className="flex-1 flex flex-col lg:flex-row overflow-hidden relative z-10">
         {/* Left Panel: Controls & Progress */}
-        <div className="w-[450px] bg-slate-900 border-r border-slate-800 flex flex-col shrink-0 relative z-20 shadow-2xl">
+        <div className="w-full lg:w-[450px] h-[55vh] lg:h-auto overflow-y-auto bg-white border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col shrink-0 relative z-20 shadow-xl">
           
           {/* Main Action Area */}
-          <div className="p-8 border-b border-slate-800 flex flex-col items-center justify-center min-h-[300px] relative overflow-hidden">
+          <div className="p-8 border-b border-slate-100 flex flex-col items-center justify-center min-h-[300px] relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent pointer-events-none" />
             
             <motion.button
@@ -102,8 +113,8 @@ export default function DriverDashboard() {
             </motion.button>
             
             <div className="mt-8 text-center">
-              <p className="text-sm text-slate-400 font-medium uppercase tracking-widest mb-1">Status</p>
-              <p className={`text-lg font-bold ${isShiftActive ? 'text-emerald-400' : 'text-slate-500'}`}>
+              <p className="text-sm text-slate-500 font-medium uppercase tracking-widest mb-1">Status</p>
+              <p className={`text-lg font-bold ${isShiftActive ? 'text-emerald-500' : 'text-slate-400'}`}>
                 {isShiftActive ? "BROADCASTING LIVE" : "OFFLINE"}
               </p>
             </div>
@@ -120,32 +131,32 @@ export default function DriverDashboard() {
                 className="flex-1 overflow-y-auto p-6 flex flex-col gap-6 scrollbar-hide"
               >
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-slate-800/50 rounded-2xl p-4 border border-slate-700/50">
-                    <div className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-2">Speed</div>
-                    <div className="text-3xl font-bold text-white flex items-baseline gap-1">
+                  <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                    <div className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-2">Speed</div>
+                    <div className="text-3xl font-bold text-slate-900 flex items-baseline gap-1">
                       {DRIVER_DATA.shift.currentSpeed.split(' ')[0]} <span className="text-sm text-slate-500 font-medium">km/h</span>
                     </div>
                   </div>
-                  <div className="bg-slate-800/50 rounded-2xl p-4 border border-slate-700/50">
-                    <div className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-2">Passengers</div>
-                    <div className="text-3xl font-bold text-white flex items-baseline gap-2">
+                  <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                    <div className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-2">Passengers</div>
+                    <div className="text-3xl font-bold text-slate-900 flex items-baseline gap-2">
                       {activeRoute.occupancy.replace('%', '')} <span className="text-sm text-slate-500 font-medium">%</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-slate-800/50 rounded-2xl p-5 border border-slate-700/50">
-                  <div className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-4">Next Stop</div>
+                <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100">
+                  <div className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-4">Next Stop</div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-600 shrink-0">
                       <MapPin className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-white mb-1">{activeRoute.nextStop}</h3>
-                      <p className="text-sm text-slate-400 font-medium">ETA: {activeRoute.arrivalTime}</p>
+                      <h3 className="text-xl font-bold text-slate-900 mb-1">{activeRoute.nextStop}</h3>
+                      <p className="text-sm text-slate-500 font-medium">ETA: {activeRoute.arrivalTime}</p>
                     </div>
                   </div>
-                  <button className="w-full mt-4 py-3 bg-slate-700 hover:bg-slate-600 rounded-xl text-sm font-bold text-white transition-colors cursor-pointer">
+                  <button className="w-full mt-4 py-3 bg-slate-900 hover:bg-slate-800 rounded-xl text-sm font-bold text-white transition-colors cursor-pointer">
                     Report Delay
                   </button>
                 </div>
@@ -158,17 +169,17 @@ export default function DriverDashboard() {
                 exit={{ opacity: 0 }}
                 className="flex-1 flex flex-col items-center justify-center p-8 text-center"
               >
-                <div className="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center mb-4">
-                  <Clock className="w-8 h-8 text-slate-600" />
+                <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mb-4">
+                  <Clock className="w-8 h-8 text-slate-400" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-300 mb-2">Shift not started</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Shift not started</h3>
                 <p className="text-sm text-slate-500 font-medium">Tap the button above to begin broadcasting your GPS location and routing data.</p>
               </motion.div>
             )}
           </AnimatePresence>
 
           {/* Emergency Dock */}
-          <div className="p-4 border-t border-slate-800 bg-slate-900 shrink-0">
+          <div className="p-4 border-t border-slate-200 bg-white shrink-0">
             <button className="w-full py-4 rounded-xl border border-red-500/30 bg-red-500/10 hover:bg-red-500/20 text-red-500 font-bold tracking-wide flex items-center justify-center gap-2 transition-colors cursor-pointer">
               <AlertTriangle className="w-5 h-5" />
               EMERGENCY SOS
@@ -178,10 +189,10 @@ export default function DriverDashboard() {
         </div>
 
         {/* Right Panel: Live Map */}
-        <div className="flex-1 relative bg-slate-950 z-10">
+        <div className="flex-1 min-h-[45vh] lg:min-h-0 relative bg-[#F5F7FA] z-10">
           {!isLoaded ? (
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-8 h-8 rounded-full border-2 border-slate-700 border-t-blue-500 animate-spin" />
+              <div className="w-8 h-8 rounded-full border-2 border-slate-200 border-t-blue-600 animate-spin" />
             </div>
           ) : (
             <div className={`absolute inset-0 transition-all duration-1000 ${isShiftActive ? 'opacity-100' : 'opacity-40 grayscale'}`}>
@@ -191,15 +202,6 @@ export default function DriverDashboard() {
                 zoom={12}
                 options={{
                   disableDefaultUI: true,
-                  styles: [
-                    { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
-                    { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
-                    { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
-                    { featureType: "road", elementType: "geometry", stylers: [{ color: "#38414e" }] },
-                    { featureType: "road", elementType: "geometry.stroke", stylers: [{ color: "#212a37" }] },
-                    { featureType: "road", elementType: "labels.text.fill", stylers: [{ color: "#9ca5b3" }] },
-                    { featureType: "water", elementType: "geometry", stylers: [{ color: "#17263c" }] },
-                  ]
                 }}
               >
                 {isShiftActive && (
@@ -215,17 +217,17 @@ export default function DriverDashboard() {
                     
                     {/* Origin/Dest */}
                     <OverlayViewF position={activeRoute.path[0]} mapPaneName={"overlayMouseTarget"}>
-                      <div className="w-3 h-3 -translate-x-1/2 -translate-y-1/2 bg-slate-400 rounded-full border-2 border-slate-900" />
+                      <div className="w-3 h-3 -translate-x-1/2 -translate-y-1/2 bg-slate-400 rounded-full border-2 border-white" />
                     </OverlayViewF>
                     <OverlayViewF position={activeRoute.path[activeRoute.path.length - 1]} mapPaneName={"overlayMouseTarget"}>
-                      <div className="w-3 h-3 -translate-x-1/2 -translate-y-1/2 bg-slate-400 rounded-full border-2 border-slate-900" />
+                      <div className="w-3 h-3 -translate-x-1/2 -translate-y-1/2 bg-slate-400 rounded-full border-2 border-white" />
                     </OverlayViewF>
 
                     {/* Current Driver Location */}
                     <OverlayViewF position={activeRoute.currentLocation} mapPaneName={"overlayMouseTarget"}>
                       <div className="absolute -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
                         <div className="w-24 h-24 bg-blue-500/20 rounded-full animate-ping absolute" style={{ animationDuration: '3s' }} />
-                        <div className="w-8 h-8 bg-blue-500 border-4 border-slate-900 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.8)] relative z-10 flex items-center justify-center">
+                        <div className="w-8 h-8 bg-blue-600 border-4 border-white rounded-full shadow-[0_0_20px_rgba(37,99,235,0.4)] relative z-10 flex items-center justify-center">
                           <Navigation className="w-4 h-4 text-white -rotate-45" />
                         </div>
                       </div>
@@ -235,7 +237,7 @@ export default function DriverDashboard() {
               </GoogleMap>
               
               {/* Overlay Gradient for depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent pointer-events-none" />
             </div>
           )}
         </div>

@@ -13,9 +13,7 @@ import {
   UserDto,
   NotificationDto,
 } from "../Contracts/Contracts";
-import { BusManager } from "@/three/simulation/BusManager";
-import { MOCK_ROUTES, MOCK_STOPS } from "@/three/simulation/DummyScheduleEngine";
-import { WorldClock } from "@/three/simulation/WorldClock";
+import { MANGALURU_ROUTES as MOCK_ROUTES, MANGALURU_STOPS as MOCK_STOPS } from "@/lib/demoData";
 import { ServiceRegistry } from "../DependencyInjection/ServiceRegistry";
 
 // -------------------------------------------------------------
@@ -23,17 +21,7 @@ import { ServiceRegistry } from "../DependencyInjection/ServiceRegistry";
 // -------------------------------------------------------------
 export class MockBusRepository implements BusRepository {
   public async getAll(): Promise<BusDto[]> {
-    const active = BusManager.getAllBuses();
-    return active.map((b) => ({
-      id: b.id,
-      routeId: b.routeId,
-      routeColor: b.routeColor,
-      position: [b.position.x, b.position.y, b.position.z],
-      rotation: b.rotation,
-      progress: b.progress,
-      speed: b.speed,
-      isActive: b.isActive,
-    }));
+    return [];
   }
 
   public async getById(id: string): Promise<BusDto | null> {
@@ -56,10 +44,10 @@ export class MockRouteRepository implements RouteRepository {
   public async getAll(): Promise<RouteDto[]> {
     return MOCK_ROUTES.map((r) => ({
       id: r.id,
-      name: r.name,
-      color: r.color,
-      stopIds: r.stopIds,
-      headwayMinutes: r.headwayMinutes,
+      name: r.originName + " to " + r.destinationName,
+      color: "#3b82f6",
+      stopIds: [],
+      headwayMinutes: 15,
     }));
   }
 
@@ -77,7 +65,7 @@ export class MockStopRepository implements StopRepository {
     return MOCK_STOPS.map((s) => ({
       id: s.id,
       name: s.name,
-      position: s.position,
+      position: s.position as [number, number, number],
       routeIds: s.routeIds,
     }));
   }
@@ -163,11 +151,11 @@ export class MockNotificationRepository implements NotificationRepository {
 // -------------------------------------------------------------
 export class MockSimulationRepository implements SimulationRepository {
   public async getClockTime(): Promise<string> {
-    return WorldClock.formatTime();
+    return new Date().toLocaleTimeString();
   }
 
   public async setClockSpeed(speedMultiplier: number): Promise<void> {
-    WorldClock.setSpeed(speedMultiplier);
+    // Clock speed not supported
   }
 }
 

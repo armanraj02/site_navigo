@@ -143,16 +143,16 @@ export const FLEET_KPI = {
   maintenanceAlerts: "3"
 };
 
-export const MANGALURU_MARKERS = [
-  { name: "State Bank", lat: 12.8616, lng: 74.8430 },
-  { name: "Hampankatta", lat: 12.8687, lng: 74.8438 },
-  { name: "Lalbagh", lat: 12.8858, lng: 74.8436 },
-  { name: "Kankanady", lat: 12.8744, lng: 74.8625 },
-  { name: "Pumpwell", lat: 12.8735, lng: 74.8685 },
-  { name: "Nanthoor Circle", lat: 12.8855, lng: 74.8660 },
-  { name: "KSRTC Bejai", lat: 12.8897, lng: 74.8483 },
-  { name: "Mangaluru Central", lat: 12.8661, lng: 74.8436 },
-  { name: "Surathkal", lat: 13.0035, lng: 74.7937 },
-  { name: "NITK Surathkal", lat: 13.0108, lng: 74.7943 },
-  { name: "Bajpe Airport", lat: 12.9613, lng: 74.8893 }
+export const MANGALURU_STOPS = [
+  { id: "S1", name: "State Bank", lat: 12.8616, lng: 74.8430, position: [0, 0, 0], routeIds: [] },
+  { id: "S2", name: "Hampankatta", lat: 12.8687, lng: 74.8438, position: [0, 0, 0], routeIds: [] },
+  { id: "S3", name: "Lalbagh", lat: 12.8858, lng: 74.8436, position: [0, 0, 0], routeIds: [] },
+  { id: "S4", name: "Kankanady", lat: 12.8744, lng: 74.8625, position: [0, 0, 0], routeIds: [] },
+  { id: "S5", name: "Pumpwell", lat: 12.8735, lng: 74.8685, position: [0, 0, 0], routeIds: [] },
+  { id: "S6", name: "Nanthoor Circle", lat: 12.8855, lng: 74.8660, position: [0, 0, 0], routeIds: [] },
+  { id: "S7", name: "KSRTC Bejai", lat: 12.8897, lng: 74.8483, position: [0, 0, 0], routeIds: [] },
+  { id: "S8", name: "Mangaluru Central", lat: 12.8661, lng: 74.8436, position: [0, 0, 0], routeIds: [] },
+  { id: "S9", name: "Surathkal", lat: 13.0035, lng: 74.7937, position: [0, 0, 0], routeIds: [] },
+  { id: "S10", name: "NITK Surathkal", lat: 13.0108, lng: 74.7943, position: [0, 0, 0], routeIds: [] },
+  { id: "S11", name: "Bajpe Airport", lat: 12.9613, lng: 74.8893, position: [0, 0, 0], routeIds: [] }
 ];

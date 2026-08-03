@@ -7,6 +7,7 @@ import { MapExperience } from "@/components/landing/MapExperience";
 
 import { LoginModal } from "@/components/landing/LoginModal";
 import { Footer } from "@/components/landing/Footer";
+import heroBg from "../../public/hero-bg.jpg";
 
 export default function LandingPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,7 +35,7 @@ export default function LandingPage() {
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url("/hero-bg.jpg")' }}
+          style={{ backgroundImage: `url(${heroBg.src})` }}
         />
         {/* Soft light gradient overlay to ensure text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/80" />
@@ -44,7 +45,7 @@ export default function LandingPage() {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-7xl md:text-[9rem] font-bold tracking-tighter mb-6 leading-none text-slate-900 drop-shadow-lg"
+            className="text-5xl sm:text-7xl lg:text-[9rem] font-bold tracking-tighter mb-6 leading-none text-slate-900 drop-shadow-lg"
           >
             Navigate Smarter.
           </motion.h1>

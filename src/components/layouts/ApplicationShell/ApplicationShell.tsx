@@ -5,7 +5,7 @@ import { useUIStore } from "@/store/uiStore";
 import { cn } from "@/utils";
 import { GlobalErrorBoundary } from "./GlobalErrorBoundary";
 import { GlobalShortcuts } from "./GlobalShortcuts";
-import { SceneViewport } from "./SceneViewport";
+
 import { FloatingSidebar } from "./FloatingSidebar";
 import { ShellNavbar } from "./TopNavbar";
 import { BottomHUD } from "./BottomHUD";
@@ -27,8 +27,7 @@ export const ApplicationShell: React.FC<ApplicationShellProps> = ({ children }) 
       <GlobalShortcuts />
       
       <div className="relative min-h-screen w-full overflow-hidden flex flex-col bg-background text-foreground select-none">
-        {/* Fullscreen 3D Scene Viewport behind HUD layers */}
-        <SceneViewport />
+
 
         {/* Global Floating Navigation Sidebar */}
         {currentView !== "loading" && currentView !== "passenger" && <FloatingSidebar />}

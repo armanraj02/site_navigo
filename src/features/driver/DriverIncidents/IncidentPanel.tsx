@@ -3,7 +3,7 @@
 import React from "react";
 import { useDriverStore } from "../DriverState";
 import { NotificationQueue } from "@/features/transit/NotificationEngine/NotificationQueue";
-import { WorldClock } from "@/three/simulation/WorldClock";
+
 import { Card, Button } from "@/components/ui";
 
 const sendIncidentAlert = (type: string, label: string) => {
@@ -12,7 +12,7 @@ const sendIncidentAlert = (type: string, label: string) => {
     title: `Driver Report: ${label}`,
     message: `Cockpit reported issue [${type.toUpperCase()}] along the route corridor. Dispatching assistance.`,
     priority: "high",
-    timestamp: WorldClock.formatTime(),
+    timestamp: new Date().toLocaleTimeString(),
   });
 };
 

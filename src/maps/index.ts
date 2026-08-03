@@ -4,7 +4,7 @@ export * from "./MapTheme";
 export * from "./MapStyles";
 export * from "./GoogleMapProvider";
 export * from "./MapManager";
-export * from "./MapCameraSync";
+
 export * from "./PlacesService";
 export * from "./DirectionsService";
 export * from "./RoadsService";

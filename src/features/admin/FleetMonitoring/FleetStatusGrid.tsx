@@ -1,12 +1,24 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { BusManager } from "@/three/simulation/BusManager";
-import { BusState } from "@/three/simulation/BusPool";
 import { useTransitStore } from "@/features/transit/TrackingEngine/TransitStore";
 import { AdminCoordinator } from "../AdminCoordinator/AdminCoordinator";
 import { useAdminStore } from "../AdminState";
 import { Card } from "@/components/ui";
+
+interface BusState {
+  id: string;
+  routeId: string;
+  routeColor: string;
+  speed: number;
+  progress: number;
+}
+
+const mockBuses: BusState[] = [
+  { id: "KA-19 F 4587", routeId: "R1", routeColor: "#3b82f6", speed: 12, progress: 0.4 },
+  { id: "KA-19 F 4588", routeId: "R2", routeColor: "#10b981", speed: 10, progress: 0.8 },
+  { id: "KA-19 F 4589", routeId: "R3", routeColor: "#f59e0b", speed: 15, progress: 0.1 },
+];
 
 export const FleetStatusGrid: React.FC = () => {
   const [vehicles, setVehicles] = useState<BusState[]>([]);
@@ -16,12 +28,7 @@ export const FleetStatusGrid: React.FC = () => {
   const liveBuses = useTransitStore((s) => s.liveBuses);
 
   useEffect(() => {
-    const update = () => {
-      setVehicles(BusManager.getAllBuses());
-    };
-    update();
-    const interval = setInterval(update, 1000);
-    return () => clearInterval(interval);
+    setVehicles(mockBuses);
   }, []);
 
   const filteredBuses = vehicles.filter((bus) => {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useCallback } from "react";
-import { AssetPreloader } from "@/three/AssetPreloader";
+
 import { useUIStore } from "@/store/uiStore";
 import { useIdleCamera } from "../hooks/useIdleCamera";
 import { useLandingAnimation } from "../hooks/useLandingAnimation";
@@ -32,9 +32,12 @@ export const LandingSequence: React.FC = () => {
   useEffect(() => {
     if (stage !== "booting") return;
 
-    AssetPreloader.preloadAll((progress) => {
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += 10;
       setLoadProgress(progress);
-    }).then(() => {
+      if (progress >= 100) {
+        clearInterval(interval);
       // Brief pause at 100% before flythrough begins
       setTimeout(() => {
         setStage("flythrough");
@@ -42,7 +45,8 @@ export const LandingSequence: React.FC = () => {
           setStage("welcome");
         });
       }, 600);
-    });
+      }
+    }, 50);
   }, [stage, startFlythrough]);
 
   const handleEnterExperience = useCallback(() => {

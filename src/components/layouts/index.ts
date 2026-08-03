@@ -1,5 +1,5 @@
 export * from "./ApplicationShell/ApplicationShell";
-export * from "./ApplicationShell/SceneViewport";
+
 export * from "./ApplicationShell/FloatingSidebar";
 export * from "./ApplicationShell/TopNavbar";
 export * from "./ApplicationShell/BottomHUD";

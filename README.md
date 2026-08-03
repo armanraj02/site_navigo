@@ -1,73 +1,79 @@
-# Navigo — Living City 3D Transit Simulation & Operations Center
+# 🚍 Navigo - Modern Transit Tracking
 
-Navigo is a premium 3D public transit simulation, journey planner, and operations control deck built on Next.js, React Three Fiber (Three.js), TailwindCSS, and Zustand. The entire city map acts as the application itself, with glassmorphic interfaces floating seamlessly above the interactive simulation.
+Navigo is a sleek, modern public transit tracking interface built with **Next.js**, **Tailwind CSS**, and the **Google Maps API**. Designed with a premium glassmorphic aesthetic, Navigo provides a seamless experience for simulating and tracking live bus routes.
 
----
-
-## 🚀 Key Highlights & Architectural Layout
-
-### 1. Cinematic Landing & Procedural City
-- Animated camera paths glide through a procedurally generated city grid of skyscrapers, lighting grids, foliage, and live traffic.
-- Day/Night cycle transitions and weather preset controls (Clear, Rain, Fog) alter global lighting and shaders in real time.
-
-### 2. Live Transit Tracking & Telemetry
-- Tracking algorithms evaluate vehicle positions, route checkmarks, speed vectors, and battery charge levels.
-- Prediction engine generates confidence ratings and schedules alerts for service delays or passenger capacity warnings.
-
-### 3. Interactive Journey Planning
-- 3D route spline rendering, transfer markers, and walking pathways drawn directly on the city plane.
-- Quick-select past queries chips persisted via localStorage.
-
-### 4. Interactive Cockpit & Operations HUDs
-- **Driver Terminal:** Locks camera target to vehicle paths, showing lane guidance updates, telemetry status, and incident selectors.
-- **Operations Control Center:** Multi-column supervisor deck offering route filtering, roadblock logging, maintenance reports, and simulation clock speed dials.
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Google Maps](https://img.shields.io/badge/Google_Maps_API-4285F4?style=for-the-badge&logo=google-maps&logoColor=white)
 
 ---
 
-## 🛠️ Tech Stack & Optimization Strategies
+## ✨ Key Features
 
-- **Core:** Next.js (Turbopack compiler), React, TypeScript.
-- **3D Canvas:** Three.js, React Three Fiber, Drei, Post-processing.
-- **State & Telemetry:** Zustand stores.
-- **Styling & Motion:** TailwindCSS, Framer Motion.
-- **Performance Gates:**
-  - **Instancing:** Reusable building meshes and street lights to lower draw call counts.
-  - **Frustum Culling & BVH:** Drei `Bvh` wrapper bounds raycasts.
-  - **Dynamic Resolution:** `AdaptiveDpr` scales resolution on high-density displays.
-  - **Lazy Loading:** Dev panels, comparison sheets, and debug helpers are lazy loaded via `React.lazy`.
+- **🗺️ Interactive Map Experience:** Built on top of the Google Maps API for smooth panning, zooming, and location tracking.
+- **✨ Premium UI/UX:** Stunning glassmorphic design system using Tailwind CSS with beautiful backdrop blurs, clean typography, and fluid micro-interactions powered by Framer Motion.
+- **📱 Fully Responsive:** Carefully optimized layout that works flawlessly across desktop, tablet, and mobile devices (including Safari iOS safe-area adjustments).
+- **🚌 Live Tracking Simulation:** View simulated active routes, bus identifiers, and live updates.
 
 ---
 
-## ⚙️ Quick Start
+## 🛠️ Tech Stack
 
-### Installation
+- **Framework:** [Next.js](https://nextjs.org/) (React)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animation:** [Framer Motion](https://www.framer.com/motion/)
+- **Mapping:** Google Maps JavaScript API (`@react-google-maps/api`)
+- **Icons:** [Lucide React](https://lucide.dev/)
+
+---
+
+## 🚀 Quick Start
+
+Follow these steps to run the project locally on your machine.
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/armanraj02/site_navigo.git
+cd site_navigo
+```
+
+### 2. Install dependencies
 ```bash
 npm install
 ```
 
-### Run Development Server
+### 3. Set up Environment Variables
+You need a Google Maps API key with the **Maps JavaScript API** enabled to render the maps.
+
+Create a `.env.local` file in the root of your project:
+```bash
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
+```
+
+### 4. Run the Development Server
 ```bash
 npm run dev
 ```
 
-### Build Production Assets
-```bash
-npm run build
-```
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ---
 
-## 📂 Documentation Directory
+## 📦 Deployment (GitHub Pages)
 
-To explore specific modules and design documentation:
-- [High-Level Architecture](file:///docs/Architecture.md)
-- [Workspace Folder Layout](file:///docs/FolderStructure.md)
-- [Three.js Engine Mechanics](file:///docs/ThreeEngine.md)
-- [Developer Workflow & Guides](file:///docs/DeveloperGuide.md)
-- [Deployment Instructions](file:///docs/DeploymentGuide.md)
-- [Performance & Optimization Logs](file:///docs/PerformanceGuide.md)
-- [Enterprise Integration Layer Adapters](file:///docs/IntegrationGuide.md)
-- [Contributing Standards](file:///docs/Contributing.md)
-- [Feature Details Summary](file:///docs/FeatureOverview.md)
-- [Known Limitations Checklist](file:///docs/KnownLimitations.md)
-- [Future Roadmap](file:///docs/FutureRoadmap.md)
+This project is configured to be exported as a static site and deployed to GitHub pages.
+
+1. Ensure your `.env.production` file contains your public Google Maps API Key.
+2. Ensure `next.config.ts` is configured with the correct `basePath` (e.g., `/site_navigo`).
+3. Commit and push to the `main` branch. GitHub Actions will automatically handle the static export and deployment to GitHub Pages.
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/armanraj02/site_navigo/issues) if you want to contribute.
+
+## 📝 License
+
+This project is licensed under the MIT License.

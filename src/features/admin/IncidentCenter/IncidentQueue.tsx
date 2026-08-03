@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useAdminStore } from "../AdminState";
 import { NotificationQueue } from "@/features/transit/NotificationEngine/NotificationQueue";
-import { WorldClock } from "@/three/simulation/WorldClock";
+
 import { Card, Button } from "@/components/ui";
 
 const sendIncidentAlert = (title: string, routeId: string, severity: "low" | "medium" | "high") => {
@@ -12,7 +12,7 @@ const sendIncidentAlert = (title: string, routeId: string, severity: "low" | "me
     title: `Admin Incident: ${title}`,
     message: `Operations center logged [${severity.toUpperCase()}] issue on route ${routeId}. Dispatch crew alerted.`,
     priority: severity === "high" ? "critical" : severity === "medium" ? "high" : "medium",
-    timestamp: WorldClock.formatTime(),
+    timestamp: new Date().toLocaleTimeString(),
   });
 };
 
